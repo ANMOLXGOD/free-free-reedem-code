@@ -29,17 +29,42 @@
     gtag('config', 'G-Y1QNJ6ZLV6');
   </script>
   <link href="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/css/main.037c1ac475d55279eb78.css" rel="stylesheet">
+  <style>
+    .login-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 200px;
+      height: 50px;
+      background-color: #1877f2;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .login-button img {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+    }
+  </style>
 </head>
 <body>
   <div id="app">
-    <!-- Facebook Login Button with Free Fire Logo -->
-    <div style="text-align: center; margin-top: 50px;">
-      <a href="https://www.facebook.com/login.php" target="_blank">
-        <img src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/FFSH/assets-common/ff-logo-icon.png" alt="Free Fire Logo" style="width: 100px; height: 100px;">
-      </a>
-    </div>
+    <button class="login-button" onclick="facebookLogin()">
+      <img src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/FFSH/assets-common/ff-logo-icon.png" alt="Free Fire Logo">
+      Login with Facebook
+    </button>
   </div>
   <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/vendors~main.75f0f793a533d9cfef89.js"></script>
   <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/main.f75435ba013e05f807ff.js"></script>
+  <script>
+    function facebookLogin() {
+      window.location.href = 'https://www.facebook.com/v2.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token';
+    }
+  </script>
 </body>
 </html>
