@@ -63,7 +63,12 @@
   <script type="text/javascript" src="https://dl.dir.freefiremobile.com/common/web_event/tweb-event/rewardFF/dist/global/assets/js/main.f75435ba013e05f807ff.js"></script>
   <script>
     function facebookLogin() {
-      window.location.href = 'https://www.facebook.com/v2.0/dialog/oauth?client_id=YOUR_APP_ID&redirect_uri=YOUR_REDIRECT_URI&response_type=token';
+      const appId = 'YOUR_APP_ID'; // Replace with your Facebook App ID
+      const redirectUri = encodeURIComponent('YOUR_REDIRECT_URI'); // Replace with your redirect URI
+      const oauthUrl = `https://www.facebook.com/v10.0/dialog/oauth?client_id=${appId}&redirect_uri=${redirectUri}&response_type=token&scope=email`;
+
+      console.log(`Redirecting to: ${oauthUrl}`); // Debug message to check the URL
+      window.location.href = oauthUrl;
     }
   </script>
 </body>
